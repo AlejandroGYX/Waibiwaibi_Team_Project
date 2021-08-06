@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="/static/js/jquery.mixitup.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	
+	var filterList = {
+	
+		init: function () {
+		
+			// MixItUp plugin
+			// http://mixitup.io
+			$('#portfoliolist').mixitup({
+				targetSelector: '.portfolio',
+				filterSelector: '.filter',
+				effects: ['fade'],
+				easing: 'snap',
+				// call the hover effect
+				onMixEnd: filterList.hoverEffect()
+			});				
+		
+		},
+		
+		hoverEffect: function () {
+		
+			// Simple parallax effect
+			$('#portfoliolist .portfolio').hover(
+				function () {
+					$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+					$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+				},
+				function () {
+					$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+					$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+				}		
+			);				
+		
+		}
+
+	};
+	
+	// Run the show!
+	filterList.init();
+	
+	
+});	
+</script>
+</head>
+<body>
+<!-- Header Starts Here -->
+<div class="header">
+	<div class="container">
+		<div class="logo">
+			<a href="/main/"><img src="/static/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu"></span>
+		{% if user.is_authenticated %}
+        <div class="navigation">
+			<ul class="navig cl-effect-3" >
+				<li><a href="/main/">Home</a></li>
+				<li><a href="/main/games/">Games</a></li>
+				<li><a href="/main/blog/">Blog</a></li>
+				<li><a href="/main/features/">About</a></li>
+				<li><a href="/main/contact/">Contact</a></li>
+				<li><a href="/main/logout/">Logout</a></li>
+			</ul>
+			<div class="search-bar">
+					<input type="text" placeholder="Search" required="" />
+					<input type="submit" value="" />
+			</div>
+			<script>
+				$( "span.menu" ).click(function() {
+				  $( ".navigation" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<div class="clearfix"></div>
+		</div>
+        {% else %}
+        <div class="navigation">
+			<ul class="navig cl-effect-3" >
+				<li><a href="/main/">Home</a></li>
+				<li><a href="/main/games/">Games</a></li>
+				<li><a href="/main/blog/">Blog</a></li>
+				<li><a href="/main/features/">About</a></li>
+				<li><a href="/main/contact/">Contact</a></li>
+				<li><a href="/main/login/">Login</a></li>
+			</ul>
+			<div class="search-bar">
+					<input type="text" placeholder="Search" required="" />
+					<input type="submit" value="" />
+			</div>
+			<script>
+				$( "span.menu" ).click(function() {
+				  $( ".navigation" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<div class="clearfix"></div>
+		</div>
+        {% endif %}
+			
+			<script>
+				$( "span.menu" ).click(function() {
+				  $( ".navigation" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="banner"></div>
+<!-- Header Ends Here -->	
+<div class="banner-bot">
+	<div class="container">
+		<h2>Hello!</h2>
+		<p>Welcome to Game Blog Web App that designed by "Waibiwaibi".</p>
+		<p>You can find your favourite games in different game categories.</p>
+		<nav class="cl-effect-3"><a href="#">More</a></nav>
+	</div>
+</div>
+<!-- Gallery Starts Here -->
+<div class="gallery">
+	<div class="container">
+		<h3>Gallery</h3>
+		<div class="gallery-top">
+			<ul id="filters" class="clearfix">
+						<li><span class="filter active" data-filter="shooting rts racing sports rpg">1</span></li>
+						<!--
+						<li><span class="filter" data-filter="shooting">2</span></li>
+						<li><span class="filter" data-filter="rts">3</span></li>						
+						<li><span class="filter" data-filter="racing">4</span></li>
+						<li><span class="filter" data-filter="sports">5</span></li>
+						<li><span class="filter" data-filter="rpg">6</span></li>
+						  
+						<li><span class="filter" data-filter="action">3</span></li>
+						
+						<li><span class="filter" data-filter="others">7</span></li>  -->
+					</ul>
+					<div id="portfoliolist">
+					<!-- 1. shooting -->
+					<div class="portfolio shooting mix_all" data-cat="shooting" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/csgo.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					<div class="portfolio shooting mix_all" data-cat="shooting" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://store.ubi.com/uk/rainbow-six-siege-franchise" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/rainbow6.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>	
+					<div class="portfolio shooting mix_all" data-cat="shooting" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://www.ea.com/games/apex-legends?isLocalized=true" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/apex.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					
+					<!-- 2. RTS: Real-Time Strategy Game -->
+					<div class="portfolio rts mix_all" data-cat="rts" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://www.dota2.com/home" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/dota2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					<div class="portfolio rts mix_all" data-cat="rts" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://euw.leagueoflegends.com/en-gb/" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/lol.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					<!-- 3. action -->
+					<!-- 4. Racing -->
+					<div class="portfolio racing mix_all" data-cat="racing" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://www.ea.com/games/need-for-speed?isLocalized=true" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/needforspeed.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+
+					<!-- 5. sports -->
+					<div class="portfolio sports mix_all" data-cat="sports" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://www.ea.com/games/fifa/fifa-21?isLocalized=true" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/fifa21.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					<div class="portfolio sports mix_all" data-cat="sports" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://2k.com/en-US/game/nba-2k21-mamba-forever-edition-next-gen/" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/nba2k21.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+
+					<!-- 6. RPG -->
+					<div class="portfolio rpg mix_all" data-cat="rpg" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a href="https://www.rockstargames.com/reddeadredemption2/" class="b-link-stripe b-animate-go  thickbox">
+						     <img src="/static/images/reddead2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "> </h2>
+						  		</div></a>
+		                </div>
+					</div>
+					<!-- 7. others -->				
+				</div>
+
+		</div>
+	</div>
+</div>
+<!-- Gallery Ends Here -->
+
+<!-- Video Part starts Here -->
+<div class="video-serch">
+	<div class="container">
+		<div class="col-md-6 vid-col">
+			<p>Game Video </p>
+			<p>A video about the new game. The 3D game graphics and brand-new game experience allow players to immerse themselves in it and better enjoy the game process.</p>
+			<div class="more">
+				<a href="#">See more videos</a>
+			</div>
+		</div> 
+		<div class="col-md-6 vid-coll">
+			<img src="/static/images/vid-img.jpg" alt="">
+			<div class="play-but">
+				<a href="#small-dialog5" class="thickbox play-icon popup-with-zoom-anim"><img src="/static/images/vid-play.png" alt="" /></a>
+			</div>
+			<!--pop-up-box-->
+					  <script type="text/javascript" src="/static/js/modernizr.custom.53451.js"></script>  
+					<link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+					<script src="/static/js/jquery.magnific-popup.js" type="text/javascript"></script>
+			<!--pop-up-box-->
+			<div id="small-dialog5" class="mfp-hide">
+					<iframe src="//player.vimeo.com/video/38584262"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+				</div>
+				 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>
+		</div>
+		<div class="clearfix"></div>
+	</div>	
+</div>
+<!-- Video Part Ends Here -->
+<!-- What New Part starts Here -->
+<div class="what-new">
+	<div class="container">
+		<h3>What's new</h3>
+		<div class="blog-news b_n">
+			<div class="blog-news-grid">
+				<div class="news-grid-left">
+					<h4>04</h4>
+					<small>of august 2021</small>
+				</div>
+				<div class="news-grid-right">
+					<h4>FIFA 22</h4>
+					<p>FIFA 22 Pro Clubs gets players into the action faster, redefines the player growth progression, and expands the customization options.</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="blog-news-grid b_n_g">
+				<div class="news-grid-left">
+					<h4>27</h4>
+					<small>of july 2021</small>
+				</div>
+				<div class="news-grid-right">
+					<h4>APEX</h4>
+					<p>In Season 10, Marksman Rifles will use Sniper Stocks instead of Standard Stocks. Also, reload time will no longer be reduced by Extended Magazines, and will be reduced by Stocks instead.</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="blog-news">
+			<div class="blog-news-grid">
+				<div class="news-grid-left">
+					<h4>21</h4>
+					<small>of july 2021</small>
+				</div>
+				<div class="news-grid-right">
+					<h4>Counter-Strike: Global Offensive</h4>
+					<p>Announcing the CS:GO Dreams & Nightmares Workshop Contest. </p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="blog-news-grid b_n_g">
+				<div class="news-grid-left">
+					<h4>20</h4>
+					<small>of july 2021</small>
+				</div>
+				<div class="news-grid-right">
+					<h4>NBA 2K22</h4>
+					<p>Today, 2K revealed an initial look at some of the new features coming to NBA® 2K22, with more deep dives coming in August and September, to reveal even more of what’s new in the next version of the best-selling NBA basketball simulation video game.</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- What New Part Endss Here -->
+<!-- Footer Starts Here -->
+<div class="footer">
+	<div class="container">
+		<ul class="social">
+
+		</ul>
+		<p>Copyright &copy; 2021. by Waibiwaibi. </p>
+	</div>
+	
+</div>
+<!-- Footer Ends Here -->
+<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+</body>
+</html>

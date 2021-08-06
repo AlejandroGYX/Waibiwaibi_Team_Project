@@ -1,0 +1,131 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body_block %}
+<!-- Header Ends Here -->	
+<!-- Games Page Starts here -->
+<div class="games">
+	<div class="container">
+		<div class="page-path">
+			<ul class="path-list">
+				<li><a href="/main/">Home</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
+				<li><a href="/main/blog/">Blog</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
+				<li class="act">Details</li>
+			</ul>
+
+			<div class="clearfix"></div>
+		</div>
+		<h3 class="page-header">
+			Recent Blogs
+		</h3>
+		<div class="blog-content">
+			<div class="blog-post">
+				<h3><a href="#">Counter-Strike: Global Offensive</a></h3>
+				<div class="post-details">
+					<p>Posted By <a href="#">Waibiwaibi</a> &nbsp;&nbsp; On <span>15 July, 2021</span> &nbsp;&nbsp; Comments<span>(10)</span></p>
+				</div>
+				<img src="/static/images/blogcsgo.jpg" alt="">
+				<h4>About CS:GO</h4>
+				<p>Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.</p>
+				<p>CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).</p>	
+				<p>"Counter-Strike took the gaming industry by surprise when the unlikely MOD became the most played online PC action game in the world almost immediately after its release in August 1999," said Doug Lombardi at Valve. "For the past 12 years, it has continued to be one of the most-played games in the world, headline competitive gaming tournaments and selling over 25 million units worldwide across the franchise. CS: GO promises to expand on CS' award-winning gameplay and deliver it to gamers on the PC as well as the next gen consoles and the Mac."</p>
+				<nav class="cl-effect-3"><a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">More Information</a></nav>
+			</div>
+			
+			<div class="comment-box">
+				<h3 class="page-header">Comment Here </h3>
+				<div class="text-cmt">
+					<input type="text" placeholder="Name" required="" id="uname"/>
+					<input type="text" placeholder="Email" required="" id="uemail"/>
+				</div>
+				<div class="text-cmt">
+					<textarea placeholder="Message" required="" id="utext"></textarea>
+				</div>
+				<div class="text-cmt">
+					<input onclick="show()" type="submit" value="submit" placeholder="submit"/>
+				</div>
+				
+			</div>
+			<div id="uname-show"></div>
+			<div id="uemail-show"></div>
+			<div id="utext-show"></div>
+		</div>
+		<div class="blog-sidebar">
+			<h3 class="page-header">Catgeories</h3>
+			<ul class="product-categories color"><li class="cat-item cat-item-42"><a href="#">Shooting</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-60"><a href="#">Real-Time Strategy</a> <span class="count">(2)</span></li>
+				<li class="cat-item cat-item-63"><a href="#">Action</a> <span class="count">(2)</span></li>
+				<li class="cat-item cat-item-55"><a href="#">Racing</a> <span class="count">(11)</span></li>
+				<li class="cat-item cat-item-64"><a href="#">Sports</a> <span class="count">(3)</span></li>
+				<li class="cat-item cat-item-61"><a href="#">Role-Playing</a> <span class="count">(3)</span></li>
+				<li class="cat-item cat-item-56"><a href="#">Others</a> <span class="count">(6)</span></li>
+			<h3 class="page-header">Subscribe</h3>
+			<div class="subscribe">
+				<h4>Subscribe For News</h4>
+				<input type="text" placeholder="Email.." required="" />
+				<input type="submit" value="Subscribe" />
+			</div>
+			<h3 class="page-header">Papular Tags</h3>
+			<ul class="tags_links">
+					<li><a href="#">Design</a></li>
+					<li><a href="#">Branding</a></li>
+					<li><a href="#">Art</a></li>
+					<li><a href="#">Developing</a></li>
+					<li><a href="#">CSS</a></li>
+					<li><a href="#">HTML</a></li>
+					<li><a href="#">Wordpress</a></li>
+					<li><a href="#">Photography</a></li>
+			</ul>
+
+		</div>
+		<div class="clearfix"></div>
+		
+	</div>
+</div>
+<!-- What New Part Endss Here -->
+<!-- Footer Starts Here -->
+
+<script>
+	function show(){
+		showUname();
+		showUemail();
+		showUtext();
+	}
+	
+	function showUname(){
+		var uname = document.getElementById("uname");
+		var value = uname.value;
+
+		value = "<h3>" + value + "</h3>";
+		var unameShow = document.getElementById("uname-show");
+		unameShow.innerHTML = value;
+	
+
+		document.getElementById("uname-show").innerHTML = "<h3>" + document.getElementById("uname").value + "</h3>";
+	}
+
+	function showUemail(){
+		var uemail = document.getElementById("uemail");
+		var value = uemail.value;
+
+		value = "<h5>" + value + "</h5>";
+		var uemailShow = document.getElementById("uemail-show");
+		uemailShow.innerHTML = value;
+	
+
+		document.getElementById("uemail-show").innerHTML = "<h5>" + document.getElementById("uemail").value + "</h5>";
+	}
+
+	function showUtext(){
+		var utext = document.getElementById("utext");
+		var value = utext.value;
+
+		value = "<p>" + value + "</p>";
+		var utextShow = document.getElementById("utext-show");
+		utextShow.innerHTML = value;
+	
+
+		document.getElementById("utext-show").innerHTML = "<p>" + document.getElementById("utext").value + "</p>";
+	}
+</script>
+
+{% endblock %}

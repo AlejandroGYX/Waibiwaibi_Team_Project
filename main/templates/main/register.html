@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="banner"></div>
+<!-- Header Ends Here -->	
+<!-- Login Page Starts here -->
+
+<div class="games">
+	<div class="container">
+		<div class="page-path">
+			<ul class="path-list">
+				<li><a href="/main/">Home</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
+				<li class="act">Register</li>
+			</ul>
+
+			<div class="clearfix"></div>
+		</div>
+		<h3 class="page-header">
+		</h3>
+    <h3>Register for Webgame</h1>
+      {% if registered %}
+      <strong>thank you for registering!</strong>
+      <a href="{% url 'main:index' %}">Return to the homepage.</a><br />
+      {% else %}
+      <form id="user_form" method="post" action="{% url 'main:register' %}" >
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+
+          <input type="submit" name="submit" value="Register" />
+      </form>
+      {% endif %}
+	</div>
+</div>
+<!-- Login Page Ends here -->
+
+<!-- Footer Starts Here -->
+{% endblock %}

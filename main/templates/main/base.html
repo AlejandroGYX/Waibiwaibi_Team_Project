@@ -1,0 +1,92 @@
+{% load static %}
+<html>
+<head>
+<title>About</title>
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- Header Starts Here -->
+<div class="header">
+	<div class="container">
+		<div class="logo">
+			<a href="/main/"><img src="/static/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu"></span>
+        {% if user.is_authenticated %}
+        <div class="navigation">
+			<ul class="navig cl-effect-3" >
+				<li><a href="/main/">Home</a></li>
+				<li><a href="/main/games/">Games</a></li>
+				<li><a href="/main/blog/">Blog</a></li>
+				<li><a href="/main/features/">About</a></li>
+				<li><a href="/main/contact/">Contact</a></li>
+				<li><a href="/main/logout/">Logout</a></li>
+			</ul>
+			<div class="search-bar">
+					<input type="text" placeholder="Search" required="" />
+					<input type="submit" value="" />
+			</div>
+			<script>
+				$( "span.menu" ).click(function() {
+				  $( ".navigation" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<div class="clearfix"></div>
+		</div>
+        {% else %}
+        <div class="navigation">
+			<ul class="navig cl-effect-3" >
+				<li><a href="/main/">Home</a></li>
+				<li><a href="/main/games/">Games</a></li>
+				<li><a href="/main/blog/">Blog</a></li>
+				<li><a href="/main/features/">About</a></li>
+				<li><a href="/main/contact/">Contact</a></li>
+				<li><a href="/main/login/">Login</a></li>
+			</ul>
+			<div class="search-bar">
+					<input type="text" placeholder="Search" required="" />
+					<input type="submit" value="" />
+			</div>
+			<script>
+				$( "span.menu" ).click(function() {
+				  $( ".navigation" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<div class="clearfix"></div>
+		</div>
+        {% endif %}
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- Header Ends Here -->
+<!-- Games Page Starts here -->
+{% block body_block %}
+{% endblock %}
+<!-- What New Part Endss Here -->
+
+<!-- Footer Starts Here -->
+<div class="footer">
+	<div class="container">
+		<ul class="social">
+
+		</ul>
+		<p>Copyright &copy; 2021. by Waibiwaibi. </p>
+	</div>
+	
+</div>
+<!-- Footer Ends Here -->
+</body>
+</html>
